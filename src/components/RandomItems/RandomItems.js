@@ -41,6 +41,7 @@ const RandomItems = () => {
                     <p className="random__item-price">$39.99</p>
                     <button className="random__item-btn">Choose</button>
                 </div>
+                <div className="random__line"></div>
             </RandomStyled>
         </>
     )

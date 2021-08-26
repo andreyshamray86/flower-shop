@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import HeaderStyled from './Header.styles'
 
@@ -10,25 +11,27 @@ const Header = () => {
     return (
         <HeaderStyled>
             <div className="left">
-                <div className="left__logo">
-                    <img src={logo} alt="logo"  className="left__logo-image"/>
-                    <h1>Flower <span className="left__logo-shop">Shop</span></h1>
-                </div>
+                <Link to='/'>
+                    <div className="left__logo">
+                        <img src={logo} alt="logo"  className="left__logo-image"/>
+                        <h1>Flower <span className="left__logo-shop">Shop</span></h1>
+                    </div>
+                </Link>
                 <nav>
                     <ul className="left__nav">
-                      <li className="left__nav-item">Home</li>
-                      <li className="left__nav-item">Flowers</li> 
-                      <li className="left__nav-item">Gifts</li> 
-                      <li className="left__nav-item">Card</li>   
+                      <Link to='/' className="left__nav-item">Home</Link>
+                      <Link to='/flowers' className="left__nav-item">Flowers</Link> 
+                      <Link to='/gifts' className="left__nav-item">Gifts</Link> 
+                      <Link to='/card' className="left__nav-item">Card</Link>   
                     </ul>
                 </nav>
             </div>
             <div className="right">
                 <div className="right__auth">
-                    <p>Login/Register</p>
+                    <Link to='/login'><p>Login/Register</p></Link>
                 </div>
                 <div className="right__cart">
-                    <img src={cart} alt="cart" />
+                    <Link to='/cart'><img src={cart} alt="cart" /></Link>
                 </div>
                 <div className="right__search">
                     <img src={search} alt="search" />

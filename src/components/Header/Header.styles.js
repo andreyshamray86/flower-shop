@@ -40,6 +40,7 @@ const HeaderStyled = styled.div`
                 font-size: 17px;
                 color: #d23878;
                 border: 1px solid transparent;
+                text-decoration: none;
                 cursor: pointer;
                 transition: all 0.3s;
 
@@ -49,6 +50,9 @@ const HeaderStyled = styled.div`
                     border-radius: 5px;    
                 }
             }
+        }
+        a {
+            text-decoration: none;
         }
     }
 
@@ -72,6 +76,9 @@ const HeaderStyled = styled.div`
                 color: #8cae3e;
                 box-shadow: 4px 4px 8px 0px rgba(140, 174, 62, 0.3);
                 border-radius: 5px; 
+            }
+            a {
+                text-decoration: none;
             }
         }
         &__cart {
