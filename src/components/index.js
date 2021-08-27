@@ -1,0 +1,15 @@
+export { default as CardComponent } from './CardComponent/CardComponent';
+export { default as CartList } from './CartList/CartList';
+export { default as Delivery } from './Delivery/Delivery';
+export { default as Footer } from './Footer/Footer';
+export { default as Header } from './Header/Header';
+export { default as Item } from './Item/Item';
+export { default as ItemDetailed } from './ItemDetailed/ItemDetailed';
+export { default as ItemsList } from './ItemsList/ItemsList';
+export { default as Login } from './Login/Login';
+export { default as Offers } from './Offers/Offers';
+export { default as PageDescription } from './PageDescription/PageDescription';
+export { default as Promo } from './Promo/Promo';
+export { default as RandomItems } from './RandomItems/RandomItems';
+export { default as Register } from './Register/Register';
+export { default as Sort } from './Sort/Sort';

@@ -1,9 +1,6 @@
 import React from 'react'
 
-import Promo from '../../components/Promo/Promo'
-import Offers from '../../components/Offers/Offers'
-import RandomItems from '../../components/RandomItems/RandomItems'
-import Delivery from '../../components/Delivery/Delivery'
+import { Promo, Offers, RandomItems, Delivery } from '../../components'
 
 const Home = () => {
     return (

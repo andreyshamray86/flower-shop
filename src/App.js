@@ -1,14 +1,7 @@
 import { Route, Switch } from 'react-router-dom';
 
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-
-import Home from './pages/Home/Home';
-import Flowers from './pages/Flowers/Flowers';
-import Gifts from './pages/Gifts/Gifts';
-import Card from './pages/Card/Card';
-import Cart from './pages/Cart/Cart';
-import LoginPage from './pages/Login/LoginPage';
+import { Header, Footer, ItemDetailed } from './components'
+import { Home, Flowers, Gifts, Card, Cart, LoginPage } from './pages';
 
 import GlobalStyles from './helpers/GlobalStyles';
 
@@ -19,6 +12,7 @@ const App = () => {
       <Header/>
       <Switch>
         <Route path='/' exact component={Home}/>
+        <Route path='/flowers/rose' component={ItemDetailed}/>
         <Route path='/flowers' component={Flowers}/>
         <Route path='/gifts' component={Gifts}/>
         <Route path='/card' component={Card}/>

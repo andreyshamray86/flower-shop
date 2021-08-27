@@ -8,7 +8,7 @@ const LoginStyled = styled.div`
     border: 1px solid #d23878;
     color: #5a5a5a;
     border-radius: 5px;
-    box-shadow: 0px 4px 25px 0px rgba(210,56,120, 0.3);  
+    box-shadow: 0px 4px 25px 0px rgba(0,0,0, 0.2);  
     a {
         text-decoration: none;
     }

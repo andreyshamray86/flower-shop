@@ -78,6 +78,7 @@ const HeaderStyled = styled.div`
                 border-radius: 5px; 
             }
             a {
+                color: #d23878;
                 text-decoration: none;
             }
         }

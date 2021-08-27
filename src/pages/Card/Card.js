@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CardComponent from '../../components/CardComponent/CardComponent';
+import {CardComponent} from '../../components';
 
 const Card = () => {
     return (

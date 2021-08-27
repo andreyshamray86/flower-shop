@@ -9,7 +9,7 @@ const RegisterStyled = styled.div`
     border: 1px solid #8cae3e;
     border-radius: 5px;
     color: #5a5a5a;
-    box-shadow: 0px 4px 25px 0px rgba(140, 174, 62, 0.3);
+    box-shadow: 0px 4px 25px 0px rgba(0,0,0, 0.2);  
     .register {
         &__title {
             margin-top: 25px;
