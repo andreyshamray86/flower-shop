@@ -23,10 +23,22 @@ const CardStyled = styled.div`
             img {
                 width: 100%;
             }
+            &-wrapper {
+                position: relative;
+            }
+            &-formwrapper {
+                position: absolute;
+                top: 36%;
+                left: 25%;
+                width: 51%;
+                height: 37%;
+            }
             &-inputText {
                 position: absolute;
-                top: 270px;
-                left: 253px;
+                top: 0;
+                left: 0;
+                width: 90%;
+                height: 60%;
                 padding: 20px;
                 border: none;
                 resize: none;
@@ -37,11 +49,13 @@ const CardStyled = styled.div`
             }
             &-inputName{
                 position: absolute;
-                bottom: 205px;
-                right: 237px;
-                font-size: 20px;
-                padding: 5px 15px;
-                width: 300px;
+                bottom: 0;
+                right: 0;
+                font-size: 18px;
+                padding: 5px 0;
+                margin-right: 10px;
+                width: 90%;
+                height: 10%;
                 border: none;
                 color: inherit;
                 font-family: 'Allison', cursive;
@@ -49,12 +63,16 @@ const CardStyled = styled.div`
                 line-height: 24px;
                 letter-spacing: 3px;
                 text-align: right;
+                &::-webkit-input-placeholder {
+                    font-size: 36px;
+                    text-align: right;
+                }
             }
             &-btn {
                 width: 100px;
                 padding: 5px 10px;
                 position: absolute;
-                bottom: 115px;
+                bottom: -115px;
                 right: calc(50% - 50px);
                 font-family: 'Allison', cursive;
                 font-size: 32px;

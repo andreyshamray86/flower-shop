@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 import image from '../../assets/images/flowers-description.jpg'
+import image2 from '../../assets/images/gifts.jpg';
 
 const PageDescriptionStyled = styled.div`
     width: 100%;
     height: 250px;
     position: relative;
-    background: url(${image}) center;
+    background: url(${props => props.image === 'flowers' ? image: image2}) center;
     text-align: center;
     .promo {
         &__title {
