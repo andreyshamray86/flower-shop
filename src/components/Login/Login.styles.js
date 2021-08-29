@@ -33,7 +33,7 @@ const LoginStyled = styled.div`
                 color: #5a5a5a;
             }
             &-btn {
-                margin: 30px 0;
+                margin: 10px 0;
                 height: 42px;
                 border: 1px solid #d23878;
                 color: #fff;
@@ -47,7 +47,7 @@ const LoginStyled = styled.div`
             &-text {
                 display: block;
                 text-align: left;
-                margin-bottom: 15px;
+                margin: 15px 0;
                 color: #d23878;
             }
         }

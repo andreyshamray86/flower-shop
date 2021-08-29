@@ -31,20 +31,7 @@ const RegisterStyled = styled.div`
                 color: #5a5a5a;
             }
             &-btn {
-                margin: 30px 0 0 0;
-                height: 42px;
-                border: 1px solid #8cae3e;
-                color: #fff;
-                background-color: #8cae3e;
-                text-transform: uppercase;
-                &:hover {
-                    color: #8cae3e;
-                    background-color: #fff;
-                }
-            }
-            &-btngoogle {
-                margin: 30px auto;
-                width: 50%;
+                margin: 30px 0;
                 height: 42px;
                 border: 1px solid #8cae3e;
                 color: #fff;

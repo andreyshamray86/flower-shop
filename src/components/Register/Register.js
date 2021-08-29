@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { SignInWithGoogle } from '../../services/firebase';
-
 import RegisterStyled from './Register.styles';
 
 const Register = () => {
@@ -22,10 +20,6 @@ const Register = () => {
                 <label htmlFor="password2">Confirm password</label>
                     <input type="password" name="" id="password2" />
                 <button className='register__form-btn'>Sign Up</button>
-                <button 
-                    className='register__form-btngoogle'
-                    onClick={SignInWithGoogle}
-                >Sign Up with Google</button>
             </form>
         </RegisterStyled>
     )

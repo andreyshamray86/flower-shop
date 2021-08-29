@@ -1,4 +1,9 @@
+import { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { auth } from './services/firebase';
+import { getCurrentUser } from './redux/actions/authActions';
 
 import { Header, Footer, ItemDetailed } from './components'
 import { Home, Flowers, Gifts, Card, Cart, LoginPage } from './pages';
@@ -6,6 +11,13 @@ import { Home, Flowers, Gifts, Card, Cart, LoginPage } from './pages';
 import GlobalStyles from './helpers/GlobalStyles';
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    auth.onAuthStateChanged(user => {
+      dispatch(getCurrentUser(user));
+    })
+  }, [dispatch]);
+
   return (
     <>
       <GlobalStyles/>
