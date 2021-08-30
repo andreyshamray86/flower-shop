@@ -1,6 +1,12 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { 
+    getAuth, 
+    createUserWithEmailAndPassword, 
+    signInWithPopup, 
+    GoogleAuthProvider, 
+    signOut } from "firebase/auth";
+
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -15,13 +21,28 @@ const firebaseConfig = {
 const firebase = initializeApp(firebaseConfig);
 
 export const auth = getAuth(firebase);
-export const firestore = getFirestore(firebase);
-
+export const db = getFirestore(firebase);
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
 
 
+export const createUser = ({email, password}) => {
+    console.log('create', email, password);
+    createUserWithEmailAndPassword(auth, email, password);
+}
+
+export const addUser = ({firstName, lastName, email, phone, password}) => {
+    addDoc(collection(db, "users"), {
+        firstName,
+        lastName,
+        email,
+        phone,
+        password
+      }); 
+}
+
 export const signInWithGoogle = () => signInWithPopup(auth, provider);
+
 export const logOut = () => signOut(auth);
 
 export default firebase;

@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
-import { signOut } from '../../redux/actions/authActions'
 
 import HeaderStyled from './Header.styles'
 import logo from '../../assets/icons/logo.svg'
@@ -10,9 +9,7 @@ import cart from '../../assets/icons/cart.svg'
 import search from '../../assets/icons/search.svg'
 
 const Header = () => {
-    const dispatch = useDispatch();
-    const user = useSelector(state => state.auth.user);
-    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    const token = useSelector(state => state.auth.token);
 
     return (
         <HeaderStyled>
@@ -34,7 +31,7 @@ const Header = () => {
             </div>
             <div className="right">
                 <div className="right__auth">
-                    {isAuthenticated ? <Link to='/login' onClick={() => dispatch(signOut())}><p>Logout</p></Link> 
+                    {token ? <Link to='/logout'><p>Logout</p></Link> 
                         : <Link to='/login'><p>Login/Register</p></Link>}
                 </div>
                 <div className="right__cart">

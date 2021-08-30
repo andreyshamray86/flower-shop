@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const LoginStyled = styled.div`
     width: 50%;
+    height: 60vh;
     margin: 0 auto;
     margin-top: 70px;
     padding: 0 100px;

@@ -1,22 +1,18 @@
 const initialState = {
     user: null,
-    isAuthenticated: false,
+    token: null,
+    userId: null,
     isLoading: false,
     error: null
 }
 
 const authReducer = (state = initialState, action) => {
     switch(action.type) {
-        case 'GET_CURRENT_USER':
-            return {
-                ...state,
-                user: action.payload
-            }
         case 'LOGIN_WITH_GOOGLE':
             return {
                 ...state,
-                user: action.payload,
-                isAuthenticated: true,
+                token: action.token,
+                userId: action.userId,
                 isLoading: false
             }
         case 'LOGIN_START':
@@ -26,8 +22,8 @@ const authReducer = (state = initialState, action) => {
             }
         case 'LOGIN_SUCCESS':
             return {
-                user: action.payload,
-                isAuthenticated: true,
+                token: action.token,
+                userId: action.userId,
                 isLoading: false
             }
         case 'LOGIN_FAIL':
@@ -39,8 +35,25 @@ const authReducer = (state = initialState, action) => {
         case 'LOGOUT':
             return {
                 ...state,
-                user: null,
-                isAuthenticated: false
+                userId: null,
+                token: null
+            }
+        case 'SIGNUP_START':
+            return {
+                ...state,
+                isLoading: true
+            }
+        case 'SIGNUP_SUCCESS':
+            return {
+                ...state,
+                user: action.payload,
+                isLoading: false
+            }
+        case 'SIGNUP_FAIL':
+            return {
+                ...state,
+                error: action.payload,
+                isLoading: false
             }
         default:
             return state;

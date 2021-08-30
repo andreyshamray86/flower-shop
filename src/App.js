@@ -2,10 +2,9 @@ import { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { auth } from './services/firebase';
-import { getCurrentUser } from './redux/actions/authActions';
+import { checkAuth } from './redux/actions/authActions';
 
-import { Header, Footer, ItemDetailed } from './components'
+import { Header, Footer, ItemDetailed, Logout } from './components'
 import { Home, Flowers, Gifts, Card, Cart, LoginPage } from './pages';
 
 import GlobalStyles from './helpers/GlobalStyles';
@@ -13,15 +12,14 @@ import GlobalStyles from './helpers/GlobalStyles';
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    auth.onAuthStateChanged(user => {
-      dispatch(getCurrentUser(user));
-    })
+      dispatch(checkAuth());
   }, [dispatch]);
 
   return (
     <>
       <GlobalStyles/>
       <Header/>
+      
       <Switch>
         <Route path='/' exact component={Home}/>
         <Route path='/flowers/rose' component={ItemDetailed}/>
@@ -31,6 +29,7 @@ const App = () => {
         <Route path='/cart' component={Cart}/>
         <Route path='/login' component={LoginPage}/>
         <Route path='/register' component={LoginPage}/>
+        <Route path='/logout' component={Logout}/>
       </Switch>
       <Footer/>
     </>

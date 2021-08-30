@@ -1,26 +1,104 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+
+import { signUp } from '../../redux/actions/authActions';
+
+import { Modal } from '../../components';
 
 import RegisterStyled from './Register.styles';
 
 const Register = () => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [password, setPassword] = useState('');
+    const [password2, setPassword2] = useState('');
+
+    const [showModal, setShowModal] = useState(false);
+
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.auth.user);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!password === password2) {
+            return;
+        }
+        const user = {firstName, lastName, email, phone, password}
+        dispatch(signUp(user));
+
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPhone('');
+        setPassword('');
+        setPassword2('');
+    }
+
+    // if(user) {
+    //     setShowModal(true);
+    // }
+
     return (
         <RegisterStyled>
+            {user && <Modal/>}
             <h2 className='register__title'>New customer</h2>
             <form className='register__form'>
                 <label htmlFor="first">First Name</label>
-                    <input type="text" name="" id="first" />
+                    <input 
+                        type="text" 
+                        name="first"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)} 
+                    />
+                
                 <label htmlFor="last">Last Name</label>
-                    <input type="text" name="" id="last" />
+                    <input 
+                        type="text" 
+                        name="last"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)} 
+                     />
+                
                 <label htmlFor="email">Email</label>
-                    <input type="email" name="" id="email" />
-                <label htmlFor="phone">Phone</label>
-                    <input type="tel" name="" id="phone" />
-                <label htmlFor="password">Password</label>
-                    <input type="password" name="" id="password" />
+                    <input 
+                        type="email" 
+                        name="email" 
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)} 
+                    />
+               
+               <label htmlFor="phone">Phone</label>
+                    <input 
+                        type="tel" 
+                        name="phone" 
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)} 
+                    />
+               
+               <label htmlFor="password">Password</label>
+                    <input 
+                        type="password" 
+                        name="pass" 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)} 
+                    />
+                
                 <label htmlFor="password2">Confirm password</label>
-                    <input type="password" name="" id="password2" />
-                <button className='register__form-btn'>Sign Up</button>
+                    <input 
+                        type="password" 
+                        name="pass2" 
+                        value={password2}
+                        onChange={(e) => setPassword2(e.target.value)} 
+                    />
+                
+                <button 
+                    className='register__form-btn'
+                    onClick={handleSubmit}
+                >Sign Up</button>
             </form>
+            {/* <Modal show={showModal} setShowModal={setShowModal}/> */}
         </RegisterStyled>
     )
 }
