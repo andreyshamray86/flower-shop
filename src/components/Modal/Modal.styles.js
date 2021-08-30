@@ -8,26 +8,58 @@ const ModalStyled = styled.div`
     height: 100vh;
     background-color: rgba(0,0,0,0.5);
     z-index: 1;
-
+    transition: all 0.5s;
     .modal {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 50%;
+        top: 35%;
+        left: calc(50% - 200px);
+        width: 400px;
         height: 20vh;
         z-index: 5;
         background-color: #fff;
         border: 1px solid #000;
+        padding: 30px 20px 20px 20px;
+        color: #5a5a5a;
+        
         &__title {
-            font-size: 24px;
+            font-size: 22px;
+            text-transform: uppercase;
+            text-align: center;
         }
         &__text {
             margin-top: 20px;
+            text-align: center;
         }
         &__close {
             position: absolute;
             top: 0;
             right: 0;
+            padding: 5px;
+            color: #d23878;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+            &:hover {
+                color: #a1275a;
+            }
+        }
+
+        &__link {
+            display: block;
+            width: 30%;
+            text-decoration: none;
+            margin: 0 auto;
+            margin-top: 40px;
+            padding: 5px;
+            text-align: center;
+            text-transform: uppercase;
+            border: 1px solid #d23878;
+            background-color: #fff;
+            color: #d23878;
+            &:hover {
+                color: #fff;
+                background-color: #d23878;
+            }
         }
     }
 `;

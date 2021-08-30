@@ -15,8 +15,6 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [password2, setPassword2] = useState('');
 
-    const [showModal, setShowModal] = useState(false);
-
     const dispatch = useDispatch();
     const user = useSelector(state => state.auth.user);
 
@@ -35,10 +33,6 @@ const Register = () => {
         setPassword('');
         setPassword2('');
     }
-
-    // if(user) {
-    //     setShowModal(true);
-    // }
 
     return (
         <RegisterStyled>
