@@ -1,10 +1,14 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 import CardStyled from './CardComponent.styles'
 
 import frame from '../../assets/images/frame.jpg'
 
 const CardComponent = () => {
+    const user = useSelector(state => state.auth.user);
+    let signature = user ? `${user.firstName} ${user.lastName}` : "Enter your name here";
+    
     return (
         <CardStyled>
             <div className="card__info">
@@ -17,7 +21,7 @@ const CardComponent = () => {
                     <div className="card__image-formwrapper">
                     <form>
                         <textarea className="card__image-inputText" name="" id="" cols="44" rows="6" placeholder='Enter your message here'></textarea>
-                        <input className="card__image-inputName" type="text" placeholder='Enter your name here'/>
+                        <input className="card__image-inputName" type="text" placeholder={signature} />
                         <button className="card__image-btn">Submit</button>
                     </form>
                 </div>

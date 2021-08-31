@@ -35,6 +35,7 @@ const authReducer = (state = initialState, action) => {
         case 'LOGOUT':
             return {
                 ...state,
+                user: null,
                 userId: null,
                 token: null
             }
@@ -54,6 +55,11 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload,
                 isLoading: false
+            }
+        case 'FETCH_USER':
+            return {
+                ...state,
+                user: action.payload
             }
         default:
             return state;

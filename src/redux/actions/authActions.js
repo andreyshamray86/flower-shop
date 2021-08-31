@@ -1,6 +1,7 @@
-import { signInWithGoogle, createUser, addUser, logOut, auth } from '../../services/firebase';
+import { signInWithGoogle, createUser, addUser, logOut, auth, db } from '../../services/firebase';
 
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 const signInStart = () => {
     return {
@@ -34,7 +35,7 @@ export const signIn = ({email, password}) => async (dispatch) => {
 
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-        const {accessToken, uid} = userCredential.user;
+        const {accessToken, uid, email} = userCredential.user;
         localStorage.setItem('token', accessToken);
         localStorage.setItem('userId', uid);
         dispatch({ 
@@ -42,6 +43,7 @@ export const signIn = ({email, password}) => async (dispatch) => {
             token: accessToken,
             userId: uid
          });
+        dispatch(fetchUser(email));
     })
     .catch((error) => {
         dispatch(signInFail(error));
@@ -50,6 +52,7 @@ export const signIn = ({email, password}) => async (dispatch) => {
 
 export const signInGoogle = () => dispatch => {
     dispatch(signInStart());
+
     signInWithGoogle()
     .then(result => {
         localStorage.setItem('token', result.user.accessToken);
@@ -59,6 +62,7 @@ export const signInGoogle = () => dispatch => {
             token: result.user.accessToken,
             userId: result.user.uid
          });
+        
     })
     .catch(error => {
         dispatch(signInFail(error));
@@ -81,4 +85,14 @@ export const signUp = (user) => dispatch => {
     } catch(err) {
         dispatch({type: 'SIGNUP_FAIL', payload: err}); 
     }  
+}
+
+export const fetchUser = (email) => async (dispatch) => {
+    let user;
+    const q = query(collection(db, "users"), where("email", "==", email));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        user = doc.data();
+    });
+    dispatch({type: 'FETCH_USER', payload: user});
 }

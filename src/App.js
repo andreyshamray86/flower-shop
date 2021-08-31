@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { checkAuth } from './redux/actions/authActions';
+import { getFlowers } from './redux/actions/flowersActions';
+import { getGifts } from './redux/actions/giftsActions';
 
 import { Header, Footer, ItemDetailed, Logout } from './components'
 import { Home, Flowers, Gifts, Card, Cart, LoginPage } from './pages';
@@ -11,15 +13,20 @@ import GlobalStyles from './helpers/GlobalStyles';
 
 const App = () => {
   const dispatch = useDispatch();
+  
   useEffect(() => {
       dispatch(checkAuth());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getFlowers());
+    dispatch(getGifts());
+  });
 
   return (
     <>
       <GlobalStyles/>
       <Header/>
-      
       <Switch>
         <Route path='/' exact component={Home}/>
         <Route path='/flowers/rose' component={ItemDetailed}/>

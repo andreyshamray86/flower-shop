@@ -1,20 +1,10 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-
-import { getFlowers } from '../../redux/actions/flowersActions'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 import { PageDescription, ItemsList, Sort } from '../../components'
 
 const Flowers = () => {
-    const dispatch = useDispatch();
-    
-
-    useEffect(() => {
-        dispatch(getFlowers());
-    }, [dispatch]);
-
     const flowers = useSelector(state => state.flowers.flowers);
-    // console.log(flowers);
 
     return (
         <>

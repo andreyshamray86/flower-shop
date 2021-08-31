@@ -1,18 +1,11 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-
-import { getGifts } from '../../redux/actions/giftsActions'
+import React from 'react'
+import { useSelector } from 'react-redux';
 
 import { PageDescription, ItemsList, Sort } from '../../components'
 
 const Gifts = () => {
-    const dispatch = useDispatch();
-
     const gifts = useSelector(state => state.gifts.gifts);
 
-    useEffect(() => {
-        dispatch(getGifts());
-    }, [dispatch]);
     return (
         <>  
             <PageDescription/>

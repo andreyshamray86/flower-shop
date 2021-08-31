@@ -1,46 +1,21 @@
 import React from 'react'
 
+import { Item } from '..';
+
 import {RandomStyled, RandomTitleStyled }from './RandomItems.styles'
 
-import flowers1 from '../../assets/images/flowers8.png'
+const RandomItems = ({title, items}) => {
+    const slicedItems = items.slice(0, 4);
 
-const RandomItems = () => {
     return (
         <>
-            <RandomTitleStyled>Flowers</RandomTitleStyled>
+            <RandomTitleStyled>{title}</RandomTitleStyled>
             <RandomStyled>
-                <div className="random__item">
-                    <div className="random__item-image">
-                        <img src={flowers1} alt="" />
-                    </div>
-                    <h3 className="random__item-title">Roses</h3>
-                    <p className="random__item-price">$39.99</p>
-                    <button className="random__item-btn">Choose</button>
-                </div>
-                <div className="random__item">
-                    <div className="random__item-image">
-                        <img src={flowers1} alt="" />
-                    </div>
-                    <h3 className="random__item-title">Roses</h3>
-                    <p className="random__item-price">$39.99</p>
-                    <button className="random__item-btn">Choose</button>
-                </div>
-                <div className="random__item">
-                    <div className="random__item-image">
-                        <img src={flowers1} alt="" />
-                    </div>
-                    <h3 className="random__item-title">Roses</h3>
-                    <p className="random__item-price">$39.99</p>
-                    <button className="random__item-btn">Choose</button>
-                </div>
-                <div className="random__item">
-                    <div className="random__item-image">
-                        <img src={flowers1} alt="" />
-                    </div>
-                    <h3 className="random__item-title">Roses</h3>
-                    <p className="random__item-price">$39.99</p>
-                    <button className="random__item-btn">Choose</button>
-                </div>
+                {
+                    slicedItems.map(item => {
+                        return <Item item={item} key={item.id}/>
+                    })
+                }
                 <div className="random__line"></div>
             </RandomStyled>
         </>

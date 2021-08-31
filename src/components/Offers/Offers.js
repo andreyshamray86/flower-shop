@@ -1,9 +1,9 @@
 import React from 'react'
 
 import OffersStyled from './Offers.styles'
-import flowers1 from '../../assets/images/flowers4.png'
-import flowers2 from '../../assets/images/flowers6.png'
-import flowers3 from '../../assets/images/flowers3.png'
+import flowers1 from '../../assets/images/flowers6.png'
+import flowers2 from '../../assets/images/flowers9.png'
+import flowers3 from '../../assets/images/flowers7.png'
 
 const Offers = () => {
     return (

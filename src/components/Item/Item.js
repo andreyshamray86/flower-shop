@@ -2,8 +2,6 @@ import React from 'react'
 
 import ItemStyled from './Item.styles';
 
-import flower1 from '../../assets/images/flowers15.png'
-
 const Item = ({item}) => {
     const { name, price, likes, image } = item;
     return (

@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const RandomStyled = styled.div`
     padding: 0 200px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     margin: 60px auto;
     position: relative;
     .random {
@@ -15,6 +16,7 @@ export const RandomStyled = styled.div`
             align-items: center;
             justify-content: space-between;
             color: #5a5a5a;
+            margin-bottom: 40px;
             &-title {
                 font-size: 20px;
             }
@@ -23,8 +25,10 @@ export const RandomStyled = styled.div`
             }
             &-image {
                 width: 200px;
+                height: 160px;
+                text-align: center;
                 img {
-                    width: 100%;
+                    height: 100%;
                 }
             }
             &-btn {

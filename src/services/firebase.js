@@ -3,7 +3,7 @@ import {
     getAuth, 
     createUserWithEmailAndPassword, 
     signInWithPopup, 
-    GoogleAuthProvider, 
+    GoogleAuthProvider,
     signOut } from "firebase/auth";
 
 import { getFirestore, collection, addDoc } from "firebase/firestore";
@@ -27,18 +27,18 @@ provider.setCustomParameters({ prompt: 'select_account' });
 
 
 export const createUser = ({email, password}) => {
-    console.log('create', email, password);
-    createUserWithEmailAndPassword(auth, email, password);
+    createUserWithEmailAndPassword(auth, email, password)
 }
 
-export const addUser = ({firstName, lastName, email, phone, password}) => {
-    addDoc(collection(db, "users"), {
+export const addUser = async ({firstName, lastName, email, phone, password}) => {
+    const docRef = await addDoc(collection(db, "users"), {
         firstName,
         lastName,
         email,
         phone,
         password
       }); 
+    return docRef.id;
 }
 
 export const signInWithGoogle = () => signInWithPopup(auth, provider);
