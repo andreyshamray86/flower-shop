@@ -4,19 +4,13 @@ import Item from '../Item/Item'
 
 import ItemsListStyled from './ItemsList.styles'
 
-const ItemsList = () => {
+const ItemsList = ({items}) => {
+    console.log(items);
     return (
         <ItemsListStyled>
-            <Item/>
-            <Item/>
-            <Item/>
-            <Item/>
-            <Item/>
-            <Item/>
-            <Item/>
-            <Item/>
-            <Item/>
-            <Item/>
+            {
+                items.map(item => <Item item={item} key={item.id}/>)
+            }
         </ItemsListStyled>
     )
 }

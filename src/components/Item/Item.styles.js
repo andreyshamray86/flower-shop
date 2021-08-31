@@ -10,8 +10,10 @@ const ItemStyled = styled.div`
     .item {
         &__image {
             width: 100%;
+            height: 160px;
+            text-align: center;
             img {
-                width: 100%;
+                height: 100%;
             }
         }
         &__info {
