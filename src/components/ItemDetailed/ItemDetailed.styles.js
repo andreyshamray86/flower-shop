@@ -50,6 +50,7 @@ const ItemDetailedStyled = styled.div`
                 border-color: #8cae3e;
                 cursor: pointer;
             }
+            
         }
         &__btn {
             width: 150px;
@@ -91,9 +92,15 @@ const ItemDetailedStyled = styled.div`
                     img {
                         width: 50px;
                     }
+                    
                 }
             }
         }
+    }
+    .active {
+        background-color: #8cae3e;
+        color: #fff;
+        border-color: #8cae3e; 
     }
 `;
 

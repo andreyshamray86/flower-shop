@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
@@ -8,6 +8,8 @@ import ItemDetailedStyled from './ItemDetailed.styles';
 
 
 const ItemDetailed = ({match}) => {
+    const categories = ['Standart', 'Large', 'Premium'];
+    const [category, setCategory] = useState('Standart');
     const {id} = match.params;
     const {pathname} = useLocation();
     const dbName = pathname.split('/')[1];
@@ -23,6 +25,21 @@ const ItemDetailed = ({match}) => {
         dispatch(fetchFlower(id, dbName));
     }, [dispatch, id, dbName]);
 
+    const categoryHandler = (e) => {
+        setCategory(e.target.innerText);
+    }
+    let newPrice = item[category.toLowerCase()] ? item[category.toLowerCase()] : price;
+
+
+    const addHandler = () => {
+        const item = {
+            name,
+            price: newPrice,
+            size: category
+        }
+        console.log(item);
+    }
+
     return (
         <ItemDetailedStyled>
             <div className="image">
@@ -30,7 +47,7 @@ const ItemDetailed = ({match}) => {
             </div>
             <div className="info">
                 <h3 className='info__title'>{name}</h3>
-                <span className="info__price">${price}</span>
+                <span className="info__price">${newPrice}</span>
                 <div className="info__like">Likes: {likes}</div>
                 
                 {
@@ -38,9 +55,14 @@ const ItemDetailed = ({match}) => {
                     <>
                         <span className="info__size">Size:</span>
                         <div className="info__sizechoice">
-                        <span className="info__sizechoice-item">Standart</span>
-                        <span className="info__sizechoice-item">Large</span>
-                        <span className="info__sizechoice-item">Premium</span>
+                        
+                        {
+                            categories.map((cat, index) => {
+                                return (
+                                    <span key={index} className={`info__sizechoice-item ${categories[index] === category ? 'active' : ''}`} onClick={categoryHandler}>{cat}</span>
+                                )
+                            })
+                        }
                         </div>
                         <span className="gifts">Add a gift:</span>
                         <div className="gifts__choice">
@@ -59,7 +81,7 @@ const ItemDetailed = ({match}) => {
                     </>
                 }
 
-                <button className="info__btn">Add to cart</button>
+                <button className="info__btn" onClick={addHandler}>Add to cart</button>
             </div>
         </ItemDetailedStyled>
     )
