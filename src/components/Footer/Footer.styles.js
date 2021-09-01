@@ -22,6 +22,10 @@ const FooterStyled = styled.div`
                     color: #000;
                 }
             }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
         }
         &__about {
             display: flex;

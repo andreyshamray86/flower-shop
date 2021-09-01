@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 
-import { PageDescription, ItemsList, Sort } from '../../components'
+import { PageDescription, ItemsList } from '../../components'
 
 const Gifts = () => {
     const gifts = useSelector(state => state.gifts.gifts);
@@ -9,7 +9,6 @@ const Gifts = () => {
     return (
         <>  
             <PageDescription/>
-            <Sort/>
             {gifts.length > 0 && <ItemsList items={gifts}/>}
         </>
     )

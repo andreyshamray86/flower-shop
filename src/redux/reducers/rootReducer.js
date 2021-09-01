@@ -4,7 +4,7 @@ import authReducer from './authReducer';
 import cartReducer from './cartReducer';
 import flowersReducer from './flowersReducer';
 import giftsReducer from './giftsReducer';
-import sortReducer from './sortReducer';
+import sortReducer from "./sortReducer";
 
 const rootReducer = combineReducers({
     auth: authReducer,

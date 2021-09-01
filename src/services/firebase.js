@@ -30,13 +30,12 @@ export const createUser = ({email, password}) => {
     createUserWithEmailAndPassword(auth, email, password)
 }
 
-export const addUser = async ({firstName, lastName, email, phone, password}) => {
+export const addUser = async ({firstName, lastName, email, phone }) => {
     const docRef = await addDoc(collection(db, "users"), {
         firstName,
         lastName,
         email,
-        phone,
-        password
+        phone
       }); 
     return docRef.id;
 }

@@ -1,5 +1,6 @@
 const initialState = {
     flowers: [],
+    item: '',
     isLoading: false,
     error: null
 }
@@ -22,6 +23,11 @@ const flowersReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 error: action.payload
+            }
+        case 'FETCH_ITEM':
+            return {
+                ...state,
+                item: action.payload
             }
         default:
             return state;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 const ItemStyled = styled.div`
     display: flex;
     flex-direction: column;
@@ -12,8 +13,26 @@ const ItemStyled = styled.div`
             width: 100%;
             height: 160px;
             text-align: center;
+            position: relative;
             img {
                 height: 100%;
+            }
+            &-like {
+                position: absolute;
+                bottom: -33px;
+                right: 17px;
+                width: 25px;
+                height: 25px;
+                p {
+                    display: block;
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    top: calc(50% - 5px);
+                    left: calc(50% - 5px);
+                    font-size: 10px;
+                    color: #d23878;
+                }
             }
         }
         &__info {

@@ -13,7 +13,7 @@ const RandomItems = ({title, items}) => {
             <RandomStyled>
                 {
                     slicedItems.map(item => {
-                        return <Item item={item} key={item.id}/>
+                        return <Item item={item} key={item.id} random={title}/>
                     })
                 }
                 <div className="random__line"></div>

@@ -35,3 +35,35 @@ export const getGifts = () => async (dispatch) => {
     }
 }
 
+// export const sort = (sortValue, items) => {
+//     switch(sortValue) {
+//         case 'popularity':
+//             items.sort((a, b) => a.likes < b.likes ? 1 : -1)
+//             return {
+//                 type: 'SORT_POPULARITY',
+//                 payload: items
+//             }
+//         case 'priceAsc':
+//             items.sort((a, b) => a.price > b.price ? 1 : -1)
+//             return {
+//                 type: 'SORT_PRICE_ASC',
+//                 payload: items
+//             }
+//         case 'priceDesc':
+//             items.sort((a, b) => a.price < b.price ? 1 : -1)
+//             return {
+//                 type: 'SORT_PRICE_DESC',
+//                 payload: items
+//             }
+//         case 'default':
+//             items.sort((a, b) => a.name > b.name ? 1 : -1)
+//             return {
+//                 type: 'SORT_DEFAULT',
+//                 payload: items
+//             }
+//         default: 
+//         return {}
+        
+//     }
+// }
+

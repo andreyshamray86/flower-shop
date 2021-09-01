@@ -1,5 +1,5 @@
 import { db } from "../../services/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 const getFlowersStart = () => {
     return {
@@ -32,9 +32,20 @@ export const getFlowers = () => async (dispatch) => {
                 ...doc.data()
             });
           });
+
         dispatch(getFlowersSuccess(flowers));
     } catch(error) {
         dispatch(getFlowersFail(error));
     }
 }
 
+export const fetchFlower = (id, dbName) => async (dispatch) => {
+    let item;
+    const q = query(collection(db, `${dbName}`), where("id", "==", id));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        item = doc.data();
+    });
+
+    dispatch({type: 'FETCH_ITEM', payload: item});
+}

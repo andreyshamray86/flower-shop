@@ -29,8 +29,9 @@ const App = () => {
       <Header/>
       <Switch>
         <Route path='/' exact component={Home}/>
-        <Route path='/flowers/rose' component={ItemDetailed}/>
+        <Route path='/flowers/:id' component={ItemDetailed}/>
         <Route path='/flowers' component={Flowers}/>
+        <Route path='/gifts/:id' component={ItemDetailed}/>
         <Route path='/gifts' component={Gifts}/>
         <Route path='/card' component={Card}/>
         <Route path='/cart' component={Cart}/>

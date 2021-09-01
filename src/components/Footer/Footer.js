@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import facebook from '../../assets/icons/facebook.svg'
 import instagram from '../../assets/icons/instagram.svg'
@@ -17,10 +18,10 @@ const Footer = () => {
             </div>
             <nav>
                 <ul className="footer__nav">
-                    <li className="footer__nav-item">Home</li>
-                    <li className="footer__nav-item">Flowers</li> 
-                    <li className="footer__nav-item">Gifts</li> 
-                    <li className="footer__nav-item">Card</li>   
+                   <Link to='/'><li className="footer__nav-item">Home</li></Link>
+                   <Link to='/flowers'><li className="footer__nav-item">Flowers</li></Link> 
+                   <Link to='/gifts'><li className="footer__nav-item">Gifts</li></Link> 
+                   <Link to='/card'><li className="footer__nav-item">Card</li></Link>  
                 </ul>
             </nav>
             
