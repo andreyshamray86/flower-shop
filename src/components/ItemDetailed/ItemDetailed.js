@@ -19,7 +19,6 @@ const ItemDetailed = ({match}) => {
     const dbName = pathname.split('/')[1];
     const dispatch = useDispatch();
     const item = useSelector(state => state.flowers.item);
-    console.log(item);
     
     const { image, name, price, likes} = item;
 

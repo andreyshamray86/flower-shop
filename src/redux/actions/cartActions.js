@@ -11,3 +11,13 @@ export const removeItem = (item) => {
         payload: item
     }
 }
+
+export const decreaseQuantity = item => dispatch => {
+    if(item.quantity === 1) {
+        dispatch(removeItem(item));
+    }
+    dispatch({
+        type: 'DECREASE_ITEM',
+        payload: item
+    }) 
+}

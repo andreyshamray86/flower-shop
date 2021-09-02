@@ -10,7 +10,7 @@ import search from '../../assets/icons/search.svg'
 
 const Header = () => {
     const token = useSelector(state => state.auth.token);
-    const cartItemsQuantity = useSelector(state => state.cart.numberOfItems);
+    const cartItems = useSelector(state => state.cart.cart);
 
     return (
         <HeaderStyled>
@@ -39,8 +39,8 @@ const Header = () => {
                     <div className="right__cart">
                         <img src={cart} alt="cart" />
                         {
-                            cartItemsQuantity > 0 &&
-                            <div className="right__cart-quantity">{cartItemsQuantity}</div>
+                            cartItems.length > 0 &&
+                            <div className="right__cart-quantity">{cartItems.length}</div>
                         }
                     </div>
                 </Link>

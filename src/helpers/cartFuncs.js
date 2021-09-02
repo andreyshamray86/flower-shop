@@ -16,3 +16,23 @@ export const addItemToCart = (cart, cartItemToAdd) => {
 export const removeItemFromCart = (cart, itemToRemove) => {
     return cart.filter(item => item.id !== itemToRemove.id)
 }
+
+export const decreaseItemInCart = (cart, decreasingItem) => {
+    const updatedCart = cart.map(item => {
+        return item.id === decreasingItem.id 
+        ? {...item, quantity: item.quantity - 1}
+        : item
+    })
+    return updatedCart;
+}
+
+export const countTotal = cart => {
+    
+    let total;
+        cart.forEach(item => {
+            total += item.price * item.quantity;
+        })
+
+    
+    return total;
+}
