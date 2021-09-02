@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import vase from '../../assets/icons/vase.svg'
+
 const HeaderStyled = styled.div`
     display: flex;
     justify-content: space-between;
@@ -83,7 +85,24 @@ const HeaderStyled = styled.div`
             }
         }
         &__cart {
+            position: relative;
             cursor: pointer;
+            &-quantity {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 2px;
+                right: 11px;
+                width: 27px;
+                height: 27px;
+                border: 1px solid #fff;
+                border-radius: 50%;
+                color: #d23878;
+                font-size: 14px;
+                background: url(${vase});
+                background-color: #fff;
+            }
         }
         &__search {
             cursor: pointer;

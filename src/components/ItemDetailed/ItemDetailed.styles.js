@@ -67,6 +67,18 @@ const ItemDetailedStyled = styled.div`
                 cursor: pointer;
             }
         }
+        &__date {
+            width: 50%;
+            margin-top: 20px;
+            padding: 5px;
+            color: #5a5a5a;
+            font-family: inherit;
+            border: 1px solid #5a5a5a;
+            cursor: pointer;
+            &-label {
+                margin-top: 20px;
+            }
+        }
         .gifts {
             display: block;
             margin-top: 30px;

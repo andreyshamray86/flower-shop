@@ -3,20 +3,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 import { fetchFlower } from '../../redux/actions/flowersActions';
+import { addItem } from '../../redux/actions/cartActions';
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import ItemDetailedStyled from './ItemDetailed.styles';
 
 
 const ItemDetailed = ({match}) => {
     const categories = ['Standart', 'Large', 'Premium'];
     const [category, setCategory] = useState('Standart');
+    const [date, setDate] = useState(new Date());
     const {id} = match.params;
     const {pathname} = useLocation();
     const dbName = pathname.split('/')[1];
     const dispatch = useDispatch();
     const item = useSelector(state => state.flowers.item);
+    console.log(item);
     
-    const {image, name, price, likes} = item;
+    const { image, name, price, likes} = item;
 
     const gifts = useSelector(state => state.gifts.gifts);
     const slicedGifts = gifts.slice(0, 2);
@@ -33,11 +38,14 @@ const ItemDetailed = ({match}) => {
 
     const addHandler = () => {
         const item = {
+            id,
             name,
             price: newPrice,
-            size: category
+            image,
+            size: category,
+            date: date.toLocaleDateString()
         }
-        console.log(item);
+        dispatch(addItem(item));
     }
 
     return (
@@ -81,6 +89,13 @@ const ItemDetailed = ({match}) => {
                     </>
                 }
 
+                <h5 className="info__date-label">Delivery date:</h5>
+                <DatePicker 
+                    className="info__date" 
+                    dateFormat="dd/MM/yyyy"
+                    selected={date} 
+                    onChange={(date) => setDate(date)}
+                    />
                 <button className="info__btn" onClick={addHandler}>Add to cart</button>
             </div>
         </ItemDetailedStyled>
