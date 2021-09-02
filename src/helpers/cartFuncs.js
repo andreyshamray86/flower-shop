@@ -27,12 +27,18 @@ export const decreaseItemInCart = (cart, decreasingItem) => {
 }
 
 export const countTotal = cart => {
-    
-    let total;
-        cart.forEach(item => {
-            total += item.price * item.quantity;
-        })
+    const total = cart.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+    );
+    const updatedTotal = +total.toFixed(2);
+    return updatedTotal;
+}
 
-    
+export const countItems = cart => {
+    const total = cart.reduce(
+        (acc, item) => acc + item.quantity,
+        0
+    );
     return total;
 }

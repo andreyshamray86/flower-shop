@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
+import { countItems } from '../../helpers/cartFuncs'
 
 import HeaderStyled from './Header.styles'
 import logo from '../../assets/icons/logo.svg'
@@ -11,6 +12,8 @@ import search from '../../assets/icons/search.svg'
 const Header = () => {
     const token = useSelector(state => state.auth.token);
     const cartItems = useSelector(state => state.cart.cart);
+
+    const itemsInCart = countItems(cartItems);
 
     return (
         <HeaderStyled>
@@ -39,8 +42,8 @@ const Header = () => {
                     <div className="right__cart">
                         <img src={cart} alt="cart" />
                         {
-                            cartItems.length > 0 &&
-                            <div className="right__cart-quantity">{cartItems.length}</div>
+                            itemsInCart > 0 &&
+                            <div className="right__cart-quantity">{itemsInCart}</div>
                         }
                     </div>
                 </Link>

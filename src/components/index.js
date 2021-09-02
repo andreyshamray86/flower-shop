@@ -15,4 +15,6 @@ export { default as Register } from './Register/Register';
 export { default as Sort } from './Sort/Sort';
 export { default as Spinner } from './Spinner/Spinner';
 export { default as Logout } from './Logout/Logout';
-export { default as Modal } from './Modal/Modal'
+export { default as Modal } from './Modal/Modal';
+export { default as CartItem } from './CartItem/CartItem';
+export { default as Checkout } from './Checkout/Checkout'

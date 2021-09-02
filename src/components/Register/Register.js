@@ -36,7 +36,12 @@ const Register = () => {
 
     return (
         <RegisterStyled>
-            {user && <Modal/>}
+            {user && <Modal 
+                title='Signup successful' 
+                text='Now you can login'
+                linkText='To Login Page'
+                link='login'/>}
+                
             <h2 className='register__title'>New customer</h2>
             <form className='register__form'>
                 <label htmlFor="first">First Name</label>
@@ -92,7 +97,6 @@ const Register = () => {
                     onClick={handleSubmit}
                 >Sign Up</button>
             </form>
-            {/* <Modal show={showModal} setShowModal={setShowModal}/> */}
         </RegisterStyled>
     )
 }

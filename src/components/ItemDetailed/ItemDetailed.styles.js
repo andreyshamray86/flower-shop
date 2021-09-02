@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const ItemDetailedStyled = styled.div`
     padding: 50px 200px;
-    height: 70vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     color: #5a5a5a;
@@ -86,6 +86,7 @@ const ItemDetailedStyled = styled.div`
                 display: flex;
                 align-items: center;
                 margin-top: 10px;
+                overflow-x: scroll;
                 &-item {
                     display: flex;
                     flex-direction: column;

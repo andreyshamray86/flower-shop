@@ -6,7 +6,7 @@ import { checkAuth } from './redux/actions/authActions';
 import { getFlowers } from './redux/actions/flowersActions';
 import { getGifts } from './redux/actions/giftsActions';
 
-import { Header, Footer, ItemDetailed, Logout } from './components'
+import { Header, Footer, ItemDetailed, Logout, Checkout } from './components'
 import { Home, Flowers, Gifts, Card, Cart, LoginPage } from './pages';
 
 import GlobalStyles from './helpers/GlobalStyles';
@@ -38,6 +38,7 @@ const App = () => {
         <Route path='/login' component={LoginPage}/>
         <Route path='/register' component={LoginPage}/>
         <Route path='/logout' component={Logout}/>
+        <Route path='/checkout' component={Checkout}/>
       </Switch>
       <Footer/>
     </>

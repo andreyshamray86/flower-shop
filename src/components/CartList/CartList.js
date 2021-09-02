@@ -1,6 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-import CartItem from '../CartItem/CartItem';
+import { countTotal } from '../../helpers/cartFuncs';
+
+import {CartItem} from '../../components'
 
 import 
     {CartListStyled, 
@@ -11,11 +14,7 @@ import
 
 const CartList = ({cartItems}) => {
 
-    const total = cartItems.reduce(
-        (acc, item) => acc + item.price * item.quantity,
-        0
-    );
-    const updatedTotal = +total.toFixed(2);
+    const total = countTotal(cartItems);
 
     return (
         <>
@@ -35,10 +34,10 @@ const CartList = ({cartItems}) => {
                     }
                 </ul>
             </CartListStyled>
-            <CartTotalStyled>Total: ${updatedTotal}</CartTotalStyled>
+            <CartTotalStyled>Total: ${total}</CartTotalStyled>
             <ButtonWrap>
-                <BtnStyled>Continue shopping</BtnStyled>
-                <BtnStyled>Proceed to checkout</BtnStyled>
+                <Link to='/flowers'><BtnStyled>Continue shopping</BtnStyled></Link>
+                <Link to='/checkout'><BtnStyled>Proceed to checkout</BtnStyled></Link>
             </ButtonWrap>
         </>
     )

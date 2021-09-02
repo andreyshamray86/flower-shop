@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { fetchFlower } from '../../redux/actions/flowersActions';
 import { addItem } from '../../redux/actions/cartActions';
 
+
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ItemDetailedStyled from './ItemDetailed.styles';
@@ -23,7 +24,6 @@ const ItemDetailed = ({match}) => {
     const { image, name, price, likes} = item;
 
     const gifts = useSelector(state => state.gifts.gifts);
-    const slicedGifts = gifts.slice(0, 2);
     
     useEffect(() => {
         dispatch(fetchFlower(id, dbName));
@@ -74,9 +74,9 @@ const ItemDetailed = ({match}) => {
                         <span className="gifts">Add a gift:</span>
                         <div className="gifts__choice">
                             {
-                                slicedGifts.map(gift => {
+                                gifts.map(gift => {
                                     return (
-                                        <div className="gifts__choice-item" key={gift.id}>
+                                        <div className="gifts__choice-item" key={gift.id} onClick={() => dispatch(addItem(gift))}>
                                             <img src={gift.image} alt={gift.name} />
                                             <h5>{gift.name}</h5>
                                             <span>${gift.price}</span>
