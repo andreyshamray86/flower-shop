@@ -17,15 +17,18 @@ const CartItem = ({item}) => {
                 <img src={item.image} alt="cart item image" />
                 <div className="textblock">
                     <h4 className="textblock__title">{item.name}</h4>
-                    <span className="textblock__size">Size: {item.size}</span>
-                    <span className="textblock__delivery">Delivery date: {item.date}</span>
+                    { item.id !== 'card' 
+                        ? <span className="textblock__size">Size: {item.size}</span>
+                        : <span className="textblock__size">Message: {item.message}</span>
+                    }
+                    { item.id !== 'card' && <span className="textblock__delivery">Delivery date: {item.date}</span>}
                 </div>
             </div>
             <span className="cartlist__item-price">${item.price}</span>
             <span className="cartlist__item-quantity">
-                <span className="minus" onClick={() => dispatch(decreaseQuantity(item))}>-</span>
+                { item.id !== 'card' && <span className="minus" onClick={() => dispatch(decreaseQuantity(item))}>-</span>}
                 {item.quantity}
-                <span className="plus" onClick={() => dispatch(addItem(item))}>+</span>
+                { item.id !== 'card' && <span className="plus" onClick={() => dispatch(addItem(item))}>+</span>}
             </span>
             <span className="cartlist__item-total">${updatedPrice}
                 <div className="bin" onClick={() => dispatch(removeItem(item))}><img src={bin} alt="" /></div>

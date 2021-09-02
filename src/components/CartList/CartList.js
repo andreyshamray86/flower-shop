@@ -27,10 +27,13 @@ const CartList = ({cartItems}) => {
                         <span className="cartlist__header-quantity">Quantity</span>
                         <span className="cartlist__header-total">Total</span>
                     </li>
-                    {
-                        cartItems.map((item, index) => {
+                    { 
+                        cartItems.length > 0 
+                        ? cartItems.map((item, index) => {
                             return <CartItem item={item} key={index}/>
                         })
+                        : <p className='cartlist-empty'>Cart is empty</p>
+
                     }
                 </ul>
             </CartListStyled>

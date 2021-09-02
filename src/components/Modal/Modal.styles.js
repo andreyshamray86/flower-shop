@@ -46,7 +46,7 @@ const ModalStyled = styled.div`
 
         &__link {
             display: block;
-            width: 30%;
+            width: 40%;
             text-decoration: none;
             margin: 0 auto;
             margin-top: 40px;

@@ -28,6 +28,11 @@ export const CartListStyled = styled.div`
                 text-align: center;
             }
         }
+        &-empty {
+            margin-top: 50px;
+            font-size: 20px;
+            text-align: center;
+        }
     }
 `;
 
