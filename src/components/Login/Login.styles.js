@@ -32,6 +32,9 @@ const LoginStyled = styled.div`
                 padding: 10px;
                 border: 1px solid #5a5a5a;
                 color: #5a5a5a;
+                &.error {
+                    border: 1px solid #e61818;
+                }
             }
             &-btn {
                 margin: 10px 0;
@@ -41,8 +44,16 @@ const LoginStyled = styled.div`
                 background-color: #d23878;
                 text-transform: uppercase;
                 &:hover {
-                    color: #d23878;
+                    color: #e09cb8;
                     background-color: #fff;
+                }
+                &:disabled {
+                    border: 1px solid #e09cb8;
+                    background-color: #e09cb8;
+                    &:hover {
+                        color: #fff;
+                        cursor: not-allowed;
+                    }
                 }
             }
             &-text {
@@ -53,6 +64,7 @@ const LoginStyled = styled.div`
             }
         }
     }
+    
 `;
 
 export default LoginStyled;

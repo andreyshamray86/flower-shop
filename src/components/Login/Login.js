@@ -32,8 +32,17 @@ const Login = () => {
         authRedirect = <Redirect to='/'/>
     }
 
+
+    const emailHandler = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const passwordHandler = (e) => {
+        setPassword(e.target.value);
+    }
+
     return (
-        <LoginStyled>
+        <LoginStyled disabled>
             {authRedirect}
             {
                 loading ? <Spinner/> :
@@ -46,7 +55,7 @@ const Login = () => {
                         type="email" 
                         name="email" 
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={emailHandler}
                     />
                     
                     <label htmlFor="password">Password</label>
@@ -54,7 +63,7 @@ const Login = () => {
                         type="password" 
                         name="password" 
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={passwordHandler}
                     />
                     
                     <button 

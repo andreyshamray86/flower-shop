@@ -29,6 +29,9 @@ const RegisterStyled = styled.div`
                 padding: 10px;
                 border: 1px solid #5a5a5a;
                 color: #5a5a5a;
+                &.error {
+                    border: 1px solid #e61818;
+                }
             }
             &-btn {
                 margin: 30px 0;
@@ -40,6 +43,14 @@ const RegisterStyled = styled.div`
                 &:hover {
                     color: #8cae3e;
                     background-color: #fff;
+                }
+                &:disabled {
+                    border: 1px solid #b6c594;
+                    background-color: #b6c594;
+                    &:hover {
+                        color: #fff;
+                        cursor: not-allowed;
+                    }
                 }
             }
             &-text {

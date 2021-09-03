@@ -18,6 +18,23 @@ const Register = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.auth.user);
 
+
+    const firstNameHandler = (e) => {
+        setFirstName(e.target.value)
+    }
+    const lastNameHandler = (e) => {
+        setLastName(e.target.value)
+    }
+    const emailHandler = (e) => {
+        setEmail(e.target.value)
+    }
+    const phoneHandler = (e) => {
+        setPhone(e.target.value)
+    }
+    const passwordHandler = (e) => {
+        setPassword(e.target.value)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!password === password2) {
@@ -49,7 +66,7 @@ const Register = () => {
                         type="text" 
                         name="first"
                         value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)} 
+                        onChange={firstNameHandler} 
                     />
                 
                 <label htmlFor="last">Last Name</label>
@@ -57,7 +74,7 @@ const Register = () => {
                         type="text" 
                         name="last"
                         value={lastName}
-                        onChange={(e) => setLastName(e.target.value)} 
+                        onChange={lastNameHandler} 
                      />
                 
                 <label htmlFor="email">Email</label>
@@ -65,7 +82,7 @@ const Register = () => {
                         type="email" 
                         name="email" 
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)} 
+                        onChange={emailHandler} 
                     />
                
                <label htmlFor="phone">Phone</label>
@@ -73,7 +90,7 @@ const Register = () => {
                         type="tel" 
                         name="phone" 
                         value={phone}
-                        onChange={(e) => setPhone(e.target.value)} 
+                        onChange={phoneHandler} 
                     />
                
                <label htmlFor="password">Password</label>
@@ -81,7 +98,7 @@ const Register = () => {
                         type="password" 
                         name="pass" 
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)} 
+                        onChange={passwordHandler} 
                     />
                 
                 <label htmlFor="password2">Confirm password</label>
