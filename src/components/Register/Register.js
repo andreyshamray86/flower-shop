@@ -1,121 +1,126 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+
+import { Field, reduxForm } from 'redux-form'
+import { required, email, number, minLength2, minLength11, passwordsMatch } from '../../helpers/validator';
 
 import { signUp } from '../../redux/actions/authActions';
 
 import { Modal } from '../../components';
+import cross from '../../assets/icons/red-cross.png'
 
 import RegisterStyled from './Register.styles';
 
-const Register = () => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [password, setPassword] = useState('');
-    const [password2, setPassword2] = useState('');
 
-    const dispatch = useDispatch();
-    const user = useSelector(state => state.auth.user);
+const renderField = ({
+    input,
+    label,
+    type,
+    meta: { touched, error } }) => (
+        <>
+            <label>{label}</label>
+            <input {...input} type={type} className={touched && error ? 'input-error' : ''}/>
+            {touched && error && <span className='error'>{error}</span>}
+            {touched && error && <div className='error-cross'><img src={cross} alt="" /></div>} 
+        </>
+)
 
 
-    const firstNameHandler = (e) => {
-        setFirstName(e.target.value)
-    }
-    const lastNameHandler = (e) => {
-        setLastName(e.target.value)
-    }
-    const emailHandler = (e) => {
-        setEmail(e.target.value)
-    }
-    const phoneHandler = (e) => {
-        setPhone(e.target.value)
-    }
-    const passwordHandler = (e) => {
-        setPassword(e.target.value)
-    }
+const Register = (props) => {
+    const { handleSubmit, submitting } = props;
+    console.log(props);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!password === password2) {
-            return;
-        }
-        const user = {firstName, lastName, email, phone, password}
-        dispatch(signUp(user));
+    // const dispatch = useDispatch();
+    // const user = useSelector(state => state.auth.user);
 
-        setFirstName('');
-        setLastName('');
-        setEmail('');
-        setPhone('');
-        setPassword('');
-        setPassword2('');
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (!password === password2) {
+    //         return;
+    //     }
+    //     const user = {firstName, lastName, email, phone, password}
+    //     dispatch(signUp(user));
+
+    //     setFirstName('');
+    //     setLastName('');
+    //     setEmail('');
+    //     setPhone('');
+    //     setPassword('');
+    //     setPassword2('');
+    // }
+
+    const submitForm = (values) => {
+        const { firstName, lastName, email, phone, password } = values;
+        const user = {firstName, lastName, email, phone, password};
+        console.log(user);
     }
 
     return (
         <RegisterStyled>
-            {user && <Modal 
+            {/* {user && <Modal 
                 title='Signup successful' 
                 text='Now you can login'
                 linkText='To Login Page'
-                link='login'/>}
+                link='login'/>} */}
                 
             <h2 className='register__title'>New customer</h2>
-            <form className='register__form'>
-                <label htmlFor="first">First Name</label>
-                    <input 
-                        type="text" 
-                        name="first"
-                        value={firstName}
-                        onChange={firstNameHandler} 
-                    />
-                
-                <label htmlFor="last">Last Name</label>
-                    <input 
-                        type="text" 
-                        name="last"
-                        value={lastName}
-                        onChange={lastNameHandler} 
-                     />
-                
-                <label htmlFor="email">Email</label>
-                    <input 
-                        type="email" 
-                        name="email" 
-                        value={email}
-                        onChange={emailHandler} 
-                    />
-               
-               <label htmlFor="phone">Phone</label>
-                    <input 
-                        type="tel" 
-                        name="phone" 
-                        value={phone}
-                        onChange={phoneHandler} 
-                    />
-               
-               <label htmlFor="password">Password</label>
-                    <input 
-                        type="password" 
-                        name="pass" 
-                        value={password}
-                        onChange={passwordHandler} 
-                    />
-                
-                <label htmlFor="password2">Confirm password</label>
-                    <input 
-                        type="password" 
-                        name="pass2" 
-                        value={password2}
-                        onChange={(e) => setPassword2(e.target.value)} 
-                    />
-                
+
+            <form onSubmit={handleSubmit(submitForm)} className='register__form'>
+                <Field
+                    name="firstName"
+                    type="text"
+                    component={renderField}
+                    label="First Name"
+                    validate={[required, minLength2]}
+                />
+                <Field
+                    name="lastName"
+                    type="text"
+                    component={renderField}
+                    label="Last Name"
+                    validate={[required, minLength2]}
+                />
+                <Field
+                    name="email"
+                    type="email"
+                    component={renderField}
+                    label="Email"
+                    validate={[email, required]}
+                />
+                <Field
+                    name="phone"
+                    type="text"
+                    component={renderField}
+                    label="Phone number in format 81234567890"
+                    validate={[required, number, minLength11]}
+                />
+                <Field
+                    name="password"
+                    type="password"
+                    component={renderField}
+                    label="Password"
+                    validate={[required]}
+                />
+                <Field
+                    name="password2"
+                    type="password"
+                    component={renderField}
+                    label="Confirm password"
+                    validate={[required, passwordsMatch]}
+                />
+
                 <button 
+                    type="submit"
                     className='register__form-btn'
-                    onClick={handleSubmit}
-                >Sign Up</button>
-            </form>
+                    disabled={submitting}>
+                    Sign Up
+                </button>
+                </form>
         </RegisterStyled>
     )
 }
 
-export default Register;
+export default reduxForm({
+    form: 'registration form'
+})(Register);

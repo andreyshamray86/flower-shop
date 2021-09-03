@@ -9,7 +9,7 @@ const RegisterStyled = styled.div`
     border: 1px solid #8cae3e;
     border-radius: 5px;
     color: #5a5a5a;
-    box-shadow: 0px 4px 25px 0px rgba(0,0,0, 0.2);  
+    box-shadow: 0px 4px 25px 0px rgba(0,0,0, 0.2);
     .register {
         &__title {
             margin-top: 25px;
@@ -25,13 +25,11 @@ const RegisterStyled = styled.div`
                 margin-bottom: 10px;
             }
             input {
+                position: relative;
                 margin-bottom: 10px;
                 padding: 10px;
                 border: 1px solid #5a5a5a;
                 color: #5a5a5a;
-                &.error {
-                    border: 1px solid #e61818;
-                }
             }
             &-btn {
                 margin: 30px 0;
@@ -58,6 +56,33 @@ const RegisterStyled = styled.div`
                 text-align: left;
                 margin-bottom: 15px;
                 color: #d23878;
+            }
+
+            .error-cross {
+                position: relative;
+                top: -76px;
+                right: -95%;
+                width: 15px;
+                height: 15px;
+                img {
+                    width: 100%;
+                }
+            }
+
+            .error {
+                margin-bottom: 20px;
+                color: #b80202;
+            }
+            .input-error {
+                border: 1px solid #b80202;
+                &:after {
+                    content: 'x';
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    top: 0;
+                    right: 0;
+                }
             }
         }
     }
