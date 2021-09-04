@@ -76,7 +76,10 @@ const ItemDetailed = ({match}) => {
                             {
                                 gifts.map(gift => {
                                     return (
-                                        <div className="gifts__choice-item" key={gift.id} onClick={() => dispatch(addItem(gift))}>
+                                        <div 
+                                            className="gifts__choice-item" 
+                                            key={gift.id} 
+                                            onClick={() => dispatch(addItem({...gift, date: date.toLocaleDateString(), size: category}))}>
                                             <img src={gift.image} alt={gift.name} />
                                             <h5>{gift.name}</h5>
                                             <span>${gift.price}</span>

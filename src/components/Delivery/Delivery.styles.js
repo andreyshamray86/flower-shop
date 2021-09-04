@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const DeliveryStyled = styled.div`
-    /* height: 500px; */
     padding: 50px 200px;
     background-color: #e7e7e7;
     text-align: center;
@@ -43,6 +42,68 @@ export const DeliveryStyled = styled.div`
                 p {
                     font-size: 14px;
                     margin-top: 5px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        padding: 50px 100px;
+        .delivery {
+            &__title {
+                font-size: 24px;
+            }
+            &__text {
+                width: 70%;
+            }
+        }
+    }
+
+
+    @media (max-width: 768px) {
+        padding: 50px 30px;
+        .delivery {
+            &__title {
+                font-size: 24px;
+            }
+            &__text {
+                width: 90%;
+                margin-top: 30px;
+                text-align: center;
+            }
+            &__features {
+                justify-content: space-evenly;
+                &-image {
+                    width: 110px;
+                    height: 110px;
+                    img {
+                        height: 45px;
+                    }
+                    p {
+                        margin-top: 10px;
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 430px) {
+        padding: 30px 20px;
+        .delivery {
+            &__features {
+                flex-direction: column;
+                justify-content: space-between;
+                &-image {
+                    width: 150px;
+                    height: 150px;
+                    margin-bottom: 20px;
+                    img {
+                        height: 55px;
+                    }
+                    p {
+                        font-size: 14px;
+                    }
                 }
             }
         }

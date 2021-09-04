@@ -4,9 +4,9 @@ export const CheckoutStyled = styled.div`
     padding: 50px 200px;
     .checkout {
         margin: 0 auto;
-        width: 70%;
         display: flex;
         flex-direction: column;
+        margin-left: 20px;
         color: #5a5a5a;
         &__item {
             margin-bottom: 20px;
@@ -28,12 +28,28 @@ export const CheckoutStyled = styled.div`
                 font-weight: bolder;
             }
         }
-        &__item {
-            margin-bottom: 20px;
-        }
     }
     .btn__wrap {
         text-align: center;;
+    }
+
+    @media (max-width: 1200px) {
+        padding: 50px 80px 0 80px;
+    }
+
+    @media (max-width: 768px) {
+        padding: 50px 20px 0 20px;
+    }
+
+    @media (max-width: 580px) {
+        width: 100%;
+        padding: 50px 20px 0 20px;
+        font-size: 12px;
+    }
+
+    @media (max-width: 380px) {
+        font-size: 10px;
+        padding: 0;
     }
 `;
 
@@ -51,6 +67,25 @@ export const CheckoutTotalStyled = styled.span`
     text-align: center;
     margin-bottom: 30px;
     font-size: 20px;
+
+    @media (max-width: 1200px) {
+        padding: 50px 80px 0 80px;
+    }
+
+    @media (max-width: 768px) {
+        padding: 20px 20px 0 20px;
+    }
+
+    @media (max-width: 580px) {
+        width: 100%;
+        padding: 20px 20px 0 20px;
+        font-size: 18px;
+    }
+
+    @media (max-width: 380px) { 
+        font-size: 14px;
+        padding: 0;
+    }
 `;
 
 export const BtnStyled = styled.button`

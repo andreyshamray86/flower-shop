@@ -18,7 +18,7 @@ const CartItem = ({item}) => {
                 <div className="textblock">
                     <h4 className="textblock__title">{item.name}</h4>
                     { item.id !== 'card' 
-                        ? <span className="textblock__size">Size: {item.size}</span>
+                        ? <span className="textblock__size">Size: {item.size ? item.size : 'n/a'}</span>
                         : <span className="textblock__size">Message: {item.message}</span>
                     }
                     { item.id !== 'card' && <span className="textblock__delivery">Delivery date: {item.date}</span>}

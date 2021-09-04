@@ -61,7 +61,89 @@ const PromoStyled = styled.div`
             bottom: 0;
             background: rgba(0,0,0,.6);
             z-index: 2;
+    }
+
+    @media (max-width: 1200px) {
+        height: 350px;
+
+        .promo {
+            &__title {
+                margin-top: 50px;
+                font-size: 22px;
+            }
+            &__text {
+            margin-top: 20px;
+            width: 50%;
+            font-size: 18px;
+            }
+            &__btn {
+                margin-top: 20px;
+            }
         }
+    }
+
+    @media (max-width: 768px) {
+        height: 300px;
+
+        .promo {
+            &__title {
+                margin-top: 20px;
+                font-size: 18px;
+            }
+            &__text {
+                margin-top: 10px;
+                width: 70%;
+                font-size: 16px;
+            }
+            &__btn {
+                margin-top: 20px;
+            }
+        }
+    }
+
+    @media (max-width: 570px) {
+        height: 260px;
+
+        .promo {
+            &__title {
+                margin-top: 10px;
+                font-size: 16px;
+            }
+            &__text {
+                margin-top: 5px;
+                width: 90%;
+                font-size: 14px;
+            }
+            &__btn {
+                width: 100px; 
+                height: 32px;
+                margin-top: 20px;
+                font-size: 12px;
+            }
+        }
+    }
+
+    @media (max-width: 380px) {
+
+        .promo {
+            &__title {
+                margin-top: 10px;
+                font-size: 14px;
+                line-height: 20px;
+            }
+            &__text {
+                margin-top: 10px;
+                width: 90%;
+                font-size: 12px;
+            }
+            &__btn {
+                width: 100px; 
+                height: 32px;
+                margin-top: 20px;
+                font-size: 12px;
+            }
+        }
+    }
 `;
 
 export default PromoStyled;

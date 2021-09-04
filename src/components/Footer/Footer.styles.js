@@ -57,6 +57,21 @@ const FooterStyled = styled.div`
             cursor: pointer;
         }
     }
+
+    @media (max-width: 380px) {
+        padding: 0 30px;
+        .footer {
+            &__nav {
+                width: 90%;
+                &-item {
+                    padding: 0 5px;
+                }
+            }
+            &__social {
+                width: 90%;
+            }
+        }
+    }
 `;
 
 export default FooterStyled;

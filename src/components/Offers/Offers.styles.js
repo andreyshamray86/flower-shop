@@ -73,6 +73,96 @@ const OffersStyled = styled.div`
         background-color: rgba(140, 174, 62, 0.5);
         box-shadow: 0px 5px 10px 0px rgba(140, 174, 62, 0.7);
     }
+
+    @media (max-width: 1440px) {
+        justify-content: space-around;
+        padding: 0 80px;
+        height: 400px;
+        .offers {
+            &__item {
+                width: 320px;
+                height: 320px;
+
+                &-image {
+                width: 200px;
+                height: 200px;
+                left: calc(50% - 100px);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        padding: 0 30px;
+        height: 270px;
+        .offers {
+            &__item {
+                width: 230px;
+                height: 230px;
+                
+                &-title {
+                    margin-top: 10px;
+                    font-size: 18px;
+                }
+                &-text {
+                    margin-top: 10px;
+                    font-size: 14px;
+                }
+
+                &-image {
+                width: 130px;
+                height: 130px;
+                top: 80px;
+                left: calc(50% - 65px);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        height: 800px;
+        padding: 0 30px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        
+        .offers {
+            &__item {
+                width: 50%;
+                height: 200px;
+                padding: 20px;
+
+                &-title {
+                    margin-top: 5px;
+                    font-size: 18px;
+                    text-align: center;
+                }
+                &-text {
+                    display: none;
+                }
+
+                &-image {
+                    width: 150px;
+                    height: 150px;
+                    top: 74px;
+                    left: calc(50% - 75px);
+                }
+                &-btn {
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 380px) {
+        .offers {
+            &__item {
+                width: 90%;
+                height: 200px;
+                padding: 20px;
+            }
+        }
+    }
 `;
 
 export default OffersStyled;

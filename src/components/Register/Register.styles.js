@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const RegisterStyled = styled.div`
-    padding: 50px 200px;
     width: 50%;
     margin: 0 auto;
     margin-top: 70px;
@@ -85,6 +84,45 @@ const RegisterStyled = styled.div`
                 }
             }
         }
+    }
+
+    @media (max-width: 768px) {
+        margin: 0 auto;
+        margin-top: 70px;
+        padding: 0 50px;
+        width: 60%;
+        .register {
+            &__form {
+                .error-cross {
+                    position: relative;
+                    top: -76px;
+                    right: -90%;
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 460px) {
+        .login {
+            &__form {
+                &.error {
+                    margin-bottom: 3px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 360px) {
+        .register {
+            &__form {
+                .error-cross {
+                    right: -86%;
+                }
+            }
+        }
+        
     }
 `;
 

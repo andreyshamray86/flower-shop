@@ -44,6 +44,25 @@ export const RandomStyled = styled.div`
             }
         }
     }
+
+    @media (max-width: 1440px) {
+        justify-content: space-between;
+
+    }
+
+    @media (max-width: 1200px) {
+        padding: 0 100px;
+        justify-content: space-between;
+    }
+
+
+    @media (max-width: 768px) {
+        justify-content: center;
+    }
+
+    @media (max-width: 380px) {
+        padding: 0 20px;
+    }
     
 `;
 
@@ -52,4 +71,8 @@ export const RandomTitleStyled = styled.h2`
     text-transform: uppercase;
     color: #d23878;
     text-align: center;
+
+    @media (max-width: 768px) {
+        margin-top: 40px;
+    }
 `;

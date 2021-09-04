@@ -3,8 +3,16 @@ import styled from "styled-components";
 export const ItemsListStyled = styled.div`
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     padding: 20px 200px 100px 200px;
+
+    @media (max-width: 1200px) {
+        padding: 20px 70px 100px 70px;
+    }
+
+    @media (max-width: 380px) {
+        padding: 20px 70px 100px 70px;
+    }
 `;
 
 export const SortStyled = styled.div`
@@ -28,5 +36,14 @@ export const SortStyled = styled.div`
         font-size: 18px;
         color: #5a5a5a;
         border: 1px solid #5a5a5a;
+    }
+
+    @media (max-width: 768px) {
+        justify-content: center;
+        padding: 0 50px;
+    }
+
+    @media (max-width: 380px) {
+        padding: 0 10px;
     }
 `;

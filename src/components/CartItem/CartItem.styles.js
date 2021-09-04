@@ -62,6 +62,102 @@ const CartListItemStyled = styled.li`
             }
         }
     }
+
+    @media (max-width: 1200px) {
+        .cartlist__item {
+            &-total {
+                .bin {
+                    right: -20px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 580px) {
+        .cartlist__item {
+            &-info {
+                
+                .textblock {
+                    &__title {
+                        font-size: 18px;
+                    }
+                    &__size {
+                        font-size: 14px;
+                    }
+                    &__delivery {
+                        font-size: 14px;
+                    }
+                }
+                img {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+            &-price {
+            width: 10%;
+            font-size: 14px;
+            text-align: center;
+            }
+            &-quantity {
+                width: 25%;
+                text-align: center;
+                font-size: 14px;
+                .minus {
+                    font-size: 18px;
+                }
+                .plus {
+                    font-size: 18px;
+                }
+            }
+            &-total {
+                font-size: 14px;
+                .bin {
+                    top: 22px;
+                    right: 14px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 380px) {
+        .cartlist__item {
+            &-info {
+                .textblock {
+                    &__title {
+                        font-size: 14px;
+                    }
+                    &__size {
+                        font-size: 10px;
+                    }
+                    &__delivery {
+                        font-size: 10px;
+                    }
+                }
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+            &-quantity {
+                width: 25%;
+                text-align: center;
+                font-size: 14px;
+                .minus {
+                    font-size: 14px;
+                    margin-right: 5px;
+                }
+                .plus {
+                    font-size: 14px;
+                    margin-left: 5px;
+                }
+            }
+            &-total {
+                .bin {
+                    right: -4px;
+                }
+            }
+        }
+    }
 `;
 
 export default CartListItemStyled;

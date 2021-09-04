@@ -64,6 +64,25 @@ const LoginStyled = styled.div`
             }
         }
     }
+
+    @media (max-width: 768px) {
+        width: 60%;
+        padding: 0 50px;
+    }
+
+    @media (max-width: 460px) {
+        .login {
+            &__form {
+                &-btn {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 360px) {
+        padding: 0 40px;
+    }
     
 `;
 

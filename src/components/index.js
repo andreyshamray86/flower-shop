@@ -12,7 +12,6 @@ export { default as PageDescription } from './PageDescription/PageDescription';
 export { default as Promo } from './Promo/Promo';
 export { default as RandomItems } from './RandomItems/RandomItems';
 export { default as Register } from './Register/Register';
-export { default as Sort } from './Sort/Sort';
 export { default as Spinner } from './Spinner/Spinner';
 export { default as Logout } from './Logout/Logout';
 export { default as Modal } from './Modal/Modal';

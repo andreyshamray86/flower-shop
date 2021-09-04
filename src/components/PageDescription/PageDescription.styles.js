@@ -62,7 +62,26 @@ const PageDescriptionStyled = styled.div`
             bottom: 0;
             background: rgba(0,0,0,.6);
             z-index: 2;
+    }
+
+    @media (max-width: 570px) {
+        .promo {
+            &__title {
+                width: 70%;
+                font-size: 22px;
+            }
         }
+    }
+
+    @media (max-width: 380px) {
+        .promo {
+            &__title {
+                margin-top: 60px;
+                width: 70%;
+                font-size: 18px;
+            }
+        }
+    }
 `;
 
 export default PageDescriptionStyled;

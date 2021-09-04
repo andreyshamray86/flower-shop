@@ -90,6 +90,123 @@ const CardStyled = styled.div`
             }
         }
     }
+
+    @media (max-width: 1200px) {
+        padding: 50px 100px;
+
+        .card {
+            &__info {
+                &-text {
+                    width: 80%;
+                    margin: 0 auto;
+                    margin-top: 20px;
+                }
+            }
+            &__image {
+                &-inputText {
+                    padding: 10px;
+                    font-size: 30px;
+                    line-height: 30px;
+                }
+                &-inputName{
+                    font-size: 28px;
+                    line-height: 20px;
+                    &::-webkit-input-placeholder {
+                        font-size: 28px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 50px 10px;
+
+        .card {
+            &__info {
+                &-text {
+                    width: 60%;
+                    margin: 0 auto;
+                    margin-top: 20px;
+                }
+            }
+            &__image {
+                &-inputText {
+                    font-size: 30px;
+                    line-height: 22px;
+                }
+                &-inputName{
+                    font-size: 28px;
+                    line-height: 24px;
+                    &::-webkit-input-placeholder {
+                        font-size: 26px;
+                    }
+                }
+                &-btn {
+                    bottom: -93px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 540px) {
+        padding: 50px 10px;
+
+        .card {
+            &__info {
+                &-text {
+                    width: 70%;
+                    margin: 0 auto;
+                    margin-top: 20px;
+                }
+            }
+            &__image {
+                &-inputText {
+                    padding: 5px;
+                    font-size: 24px;
+                    line-height: 22px;
+                }
+                &-inputName{
+                    font-size: 18px;
+                    line-height: 20px;
+                    &::-webkit-input-placeholder {
+                        font-size: 16px;
+                    }
+                }
+                &-btn {
+                    width: 70px;
+                    padding: 3px 5px;
+                    bottom: -65px;
+                    right: calc(50% - 35px);
+                    font-size: 26px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 380px) {
+        .card {
+            &__info {
+                &-text {
+                    width: 80%;
+                    margin: 0 auto;
+                    margin-top: 20px;
+                }
+            }
+            &__image {
+                &-inputText {
+                    font-size: 18px;
+                }
+                &-inputName{
+                    font-size: 14px;
+                    line-height: 20px;
+                    &::-webkit-input-placeholder {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
 `;
 
 export default CardStyled;
