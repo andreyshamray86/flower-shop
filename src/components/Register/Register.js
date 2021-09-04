@@ -28,41 +28,22 @@ const renderField = ({
 
 const Register = (props) => {
     const { handleSubmit, submitting } = props;
-    console.log(props);
-
-    // const dispatch = useDispatch();
-    // const user = useSelector(state => state.auth.user);
-
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     if (!password === password2) {
-    //         return;
-    //     }
-    //     const user = {firstName, lastName, email, phone, password}
-    //     dispatch(signUp(user));
-
-    //     setFirstName('');
-    //     setLastName('');
-    //     setEmail('');
-    //     setPhone('');
-    //     setPassword('');
-    //     setPassword2('');
-    // }
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.auth.user);
 
     const submitForm = (values) => {
         const { firstName, lastName, email, phone, password } = values;
         const user = {firstName, lastName, email, phone, password};
-        console.log(user);
+        dispatch(signUp(user));
     }
 
     return (
         <RegisterStyled>
-            {/* {user && <Modal 
+            {user && <Modal 
                 title='Signup successful' 
                 text='Now you can login'
                 linkText='To Login Page'
-                link='login'/>} */}
+                link='login'/>}
                 
             <h2 className='register__title'>New customer</h2>
 

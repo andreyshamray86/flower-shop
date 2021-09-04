@@ -17,4 +17,5 @@ export { default as Spinner } from './Spinner/Spinner';
 export { default as Logout } from './Logout/Logout';
 export { default as Modal } from './Modal/Modal';
 export { default as CartItem } from './CartItem/CartItem';
-export { default as Checkout } from './Checkout/Checkout'
+export { default as Checkout } from './Checkout/Checkout';
+export { default as ErrorComponent } from './ErrorComponent/ErrorComponent'

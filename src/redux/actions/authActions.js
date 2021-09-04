@@ -96,3 +96,9 @@ export const fetchUser = (email) => async (dispatch) => {
     });
     dispatch({type: 'FETCH_USER', payload: user});
 }
+
+export const clearErrors = () => {
+    return {
+        type: 'CLEAR_ERRORS'
+    }
+}

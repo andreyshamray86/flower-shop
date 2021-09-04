@@ -14,7 +14,7 @@ const CartItem = ({item}) => {
     return (
         <CartListItemStyled className="cartlist__item">
             <div className="cartlist__item-info">
-                <img src={item.image} alt="cart item image" />
+                <img src={item.image} alt="cart item" />
                 <div className="textblock">
                     <h4 className="textblock__title">{item.name}</h4>
                     { item.id !== 'card' 

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { signInGoogle, signIn } from '../../redux/actions/authActions';
 
-import { Spinner } from '../../components';
+import { Spinner, ErrorComponent } from '../../components';
 
 import LoginStyled from './Login.styles'; 
 
@@ -15,6 +15,7 @@ const Login = () => {
     const dispatch = useDispatch();
     const loading = useSelector(state => state.auth.isLoading);
     const token = useSelector(state => state.auth.token);
+    const error = useSelector(state => state.auth.error);
 
     const signInWithGoogleHandler = (e) => {
         e.preventDefault();
@@ -42,7 +43,8 @@ const Login = () => {
     }
 
     return (
-        <LoginStyled disabled>
+        <LoginStyled>
+            {error && <ErrorComponent error={error}/>}
             {authRedirect}
             {
                 loading ? <Spinner/> :
@@ -78,9 +80,6 @@ const Login = () => {
                     </form>
                     <Link to='/register'>
                         <p className='login__form-text'>New customer?</p>
-                    </Link>
-                    <Link to='/register'>
-                        <p className='login__form-text'>Lost password?</p>
                     </Link>
                 </>
             } 
