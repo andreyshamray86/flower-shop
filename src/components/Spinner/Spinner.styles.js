@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const SpinnerStyled = styled.div`
-    height: 100%;
+    height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
