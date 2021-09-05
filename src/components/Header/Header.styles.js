@@ -63,6 +63,7 @@ const HeaderStyled = styled.div`
         justify-content: space-around;
         align-items: center;
         width: 300px;
+        margin-right: 50px;
         &__auth {
             display: flex;
             justify-content: center;

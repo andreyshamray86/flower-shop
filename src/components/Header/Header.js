@@ -7,7 +7,7 @@ import { countItems } from '../../helpers/cartFuncs'
 import HeaderStyled from './Header.styles'
 import logo from '../../assets/icons/logo.svg'
 import cart from '../../assets/icons/cart.svg'
-import search from '../../assets/icons/search.svg'
+// import search from '../../assets/icons/search.svg'
 
 const Header = () => {
     const token = useSelector(state => state.auth.token);
@@ -42,7 +42,11 @@ const Header = () => {
                             <li className="sidebar__nav-item" onClick={() => navigateToOtherPage('/flowers')}>Flowers</li> 
                             <li className="sidebar__nav-item" onClick={() => navigateToOtherPage('/gifts')}>Gifts</li> 
                             <li className="sidebar__nav-item" onClick={() => navigateToOtherPage('/card')}>Card</li>
-                            <li className="sidebar__nav-item" onClick={() => navigateToOtherPage('/login')}>Login/Register</li>    
+                            {
+                                token 
+                                ? <li className="sidebar__nav-item" onClick={() => navigateToOtherPage('/logout')}>Logout</li> 
+                                : <li className="sidebar__nav-item" onClick={() => navigateToOtherPage('/login')}>Login/Register</li>
+                            }    
                         </ul>
                     </nav>
             </div>
@@ -72,13 +76,13 @@ const Header = () => {
                         <img src={cart} alt="cart" />
                         {
                             itemsInCart > 0 &&
-                            <div className="right__cart-quantity">{itemsInCart}</div>
+                                <div className="right__cart-quantity">{itemsInCart}</div>
                         }
                     </div>
                 </Link>
-                <div className="right__search">
+                {/* <div className="right__search">
                     <img src={search} alt="search" />
-                </div>
+                </div> */}
             </div>
         </HeaderStyled>
     )

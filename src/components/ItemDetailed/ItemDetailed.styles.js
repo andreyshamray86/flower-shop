@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 const ItemDetailedStyled = styled.div`
     padding: 50px 200px;
-    height: 80vh;
     display: flex;
     justify-content: center;
     color: #5a5a5a;
@@ -114,6 +113,47 @@ const ItemDetailedStyled = styled.div`
         background-color: #8cae3e;
         color: #fff;
         border-color: #8cae3e; 
+    }
+
+    @media (max-width: 1200px) {
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        padding: 50px 100px;
+        text-align: center;
+
+        .image {
+            margin-bottom: 30px;
+        }
+
+        .info {
+            &__btn {
+                margin: 0 auto;
+                margin-top: 30px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 50px 50px;
+
+        .info {
+            width: 60%;
+            .gifts {
+                /* width: 100%; */
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 50px 10px;
+
+        .info {
+            width: 80%;
+            &__sizechoice-item {
+                font-size: 12px;
+            }
+        }
     }
 `;
 

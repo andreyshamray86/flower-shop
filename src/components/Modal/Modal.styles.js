@@ -62,6 +62,20 @@ const ModalStyled = styled.div`
             }
         }
     }
+
+    @media (max-width: 580px) {
+        .modal {
+            width: 250px;
+            left: calc(50% - 125px);
+        }
+    }
+
+    @media (max-width: 380px) {
+        .modal {
+            width: 200px;
+            left: calc(50% - 120px);
+        }
+    }
 `;
 
 export default ModalStyled;
